@@ -1,0 +1,1259 @@
+ /* =========================================================
+    GREENHARVEST SIGNUP PAGE
+
+    3 MAIN COLORS
+    01 - DEEP GREEN : #123B2A
+    02 - LIME        : #D7ED55
+    03 - CREAM       : #FFF8E8
+ ========================================================= */
+
+
+/* =========================================================
+   ROOT
+========================================================= */
+
+:root {
+
+    --green: #123B2A;
+    --lime: #D7ED55;
+    --cream: #FFF8E8;
+
+    --white: #ffffff;
+
+    --text-muted: #6b756f;
+
+    --border: rgba(18, 59, 42, 0.12);
+
+    --shadow:
+        0 25px 70px rgba(18, 59, 42, 0.16);
+
+    --transition: all 0.35s ease;
+}
+
+
+/* =========================================================
+   RESET
+========================================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+html {
+    scroll-behavior: smooth;
+}
+
+
+body {
+    min-height: 100vh;
+
+    font-family: "DM Sans", sans-serif;
+
+    color: var(--green);
+
+    background: var(--cream);
+
+    overflow-x: hidden;
+}
+
+
+img {
+    display: block;
+    max-width: 100%;
+}
+
+
+a {
+    text-decoration: none;
+}
+
+
+button,
+input {
+    font: inherit;
+}
+
+
+/* =========================================================
+   SIGNUP PAGE
+========================================================= */
+
+.signup-page {
+    position: relative;
+
+    min-height: 100vh;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    padding: 45px 25px;
+
+    background-color: var(--cream);
+
+    background-image:
+        url("../assets/login-page-bg.webp");
+
+    background-size: cover;
+
+    background-position: center;
+
+    background-repeat: no-repeat;
+
+    overflow: hidden;
+}
+
+
+/* =========================================================
+   PAGE OVERLAY
+========================================================= */
+
+.signup-page::before {
+    content: "";
+
+    position: absolute;
+
+    inset: 0;
+
+    background:
+        rgba(255, 248, 232, 0.88);
+
+    z-index: 0;
+}
+
+
+/* =========================================================
+   BACKGROUND ANIMATION
+========================================================= */
+
+.background-animation {
+    position: absolute;
+
+    inset: 0;
+
+    z-index: 1;
+
+    pointer-events: none;
+
+    overflow: hidden;
+}
+
+
+.floating-leaf {
+    position: absolute;
+
+    color: var(--green);
+
+    opacity: 0.10;
+
+    animation:
+        floatingLeaf 7s ease-in-out infinite;
+}
+
+
+.leaf-one {
+    top: 12%;
+    left: 5%;
+
+    font-size: 30px;
+}
+
+
+.leaf-two {
+    top: 18%;
+    right: 6%;
+
+    font-size: 25px;
+
+    animation-delay: 1s;
+}
+
+
+.leaf-three {
+    bottom: 12%;
+    left: 8%;
+
+    font-size: 23px;
+
+    animation-delay: 2s;
+}
+
+
+.leaf-four {
+    right: 10%;
+    bottom: 8%;
+
+    font-size: 30px;
+
+    animation-delay: 3s;
+}
+
+
+@keyframes floatingLeaf {
+
+    0%,
+    100% {
+        transform:
+            translateY(0)
+            rotate(0deg);
+    }
+
+    50% {
+        transform:
+            translateY(-18px)
+            rotate(10deg);
+    }
+}
+
+
+/* =========================================================
+   CONTAINER
+========================================================= */
+
+.signup-container {
+    position: relative;
+
+    z-index: 5;
+
+    width: 100%;
+
+    max-width: 1180px;
+
+    min-height: 720px;
+
+    display: grid;
+
+    grid-template-columns: 1fr 0.9fr;
+
+    background: var(--white);
+
+    border-radius: 24px;
+
+    overflow: hidden;
+
+    box-shadow: var(--shadow);
+}
+
+
+/* =========================================================
+   IMAGE SIDE
+========================================================= */
+
+.signup-image {
+    position: relative;
+
+    min-height: 720px;
+
+    display: flex;
+
+    align-items: center;
+
+    background-image:
+        url("../assets/f1.webp");
+
+    background-size: cover;
+
+    background-position: center;
+
+    background-repeat: no-repeat;
+
+    overflow: hidden;
+}
+
+
+/* Hide original image if used */
+.signup-image > img {
+    display: none;
+}
+
+
+/* =========================================================
+   IMAGE OVERLAY
+========================================================= */
+
+.image-overlay {
+    position: absolute;
+
+    inset: 0;
+
+    background:
+        rgba(18, 59, 42, 0.75);
+
+    z-index: 1;
+}
+
+
+/* =========================================================
+   IMAGE CONTENT
+========================================================= */
+
+.image-content {
+    position: relative;
+
+    z-index: 2;
+
+    width: 100%;
+
+    max-width: 620px;
+
+    padding: 65px;
+
+    color: var(--cream);
+}
+
+
+/* =========================================================
+   LOGO
+========================================================= */
+
+.signup-logo {
+    display: inline-flex;
+
+    margin-bottom: 48px;
+
+    transition: var(--transition);
+}
+
+
+.signup-logo img {
+    width: 155px;
+
+    height: auto;
+}
+
+
+.signup-logo:hover {
+    transform: translateY(-3px);
+}
+
+
+/* =========================================================
+   IMAGE HEADING
+========================================================= */
+
+.image-content h1 {
+    max-width: 540px;
+
+    margin-bottom: 22px;
+
+    font-family:
+        "Playfair Display",
+        serif;
+
+    font-size:
+        clamp(42px, 5vw, 65px);
+
+    line-height: 1.06;
+
+    font-weight: 700;
+
+    letter-spacing: -1px;
+}
+
+
+.image-content h1 span {
+    display: block;
+
+    margin-top: 7px;
+
+    color: var(--lime);
+}
+
+
+/* =========================================================
+   IMAGE TEXT
+========================================================= */
+
+.image-content > p {
+    max-width: 500px;
+
+    margin-bottom: 38px;
+
+    color: var(--cream);
+
+    font-size: 15px;
+
+    line-height: 1.8;
+}
+
+
+/* =========================================================
+   FEATURES
+========================================================= */
+
+.image-features {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 17px;
+}
+
+
+.feature-item {
+    display: flex;
+
+    align-items: center;
+
+    gap: 13px;
+
+    color: var(--cream);
+
+    font-size: 14px;
+
+    font-weight: 600;
+
+    transition: var(--transition);
+}
+
+
+.feature-item i {
+    width: 20px;
+
+    color: var(--lime);
+
+    font-size: 18px;
+
+    text-align: center;
+}
+
+
+.feature-item:hover {
+    transform: translateX(7px);
+}
+
+
+/* =========================================================
+   FORM SIDE
+========================================================= */
+
+.signup-form-section {
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    padding: 50px 45px;
+
+    background: var(--white);
+}
+
+
+/* =========================================================
+   FORM WRAPPER
+========================================================= */
+
+.form-wrapper {
+    width: 100%;
+
+    max-width: 440px;
+}
+
+
+/* =========================================================
+   FORM HEADING
+========================================================= */
+
+.form-heading {
+    margin-bottom: 27px;
+}
+
+
+.small-label {
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: 8px;
+
+    margin-bottom: 13px;
+
+    color: var(--green);
+
+    font-size: 11px;
+
+    font-weight: 800;
+
+    letter-spacing: 1.5px;
+}
+
+
+.small-label i {
+    color: var(--green);
+}
+
+
+.form-heading h2 {
+    margin-bottom: 11px;
+
+    color: var(--green);
+
+    font-family:
+        "Playfair Display",
+        serif;
+
+    font-size: 40px;
+
+    line-height: 1.1;
+}
+
+
+.form-heading h2 span {
+    color: var(--lime);
+
+    -webkit-text-stroke: 1px var(--green);
+}
+
+
+.form-heading p {
+    color: var(--text-muted);
+
+    font-size: 13px;
+
+    line-height: 1.7;
+}
+
+
+/* =========================================================
+   FORM GROUP
+========================================================= */
+
+.form-group {
+    margin-bottom: 17px;
+}
+
+
+.form-group > label {
+    display: block;
+
+    margin-bottom: 8px;
+
+    color: var(--green);
+
+    font-size: 12px;
+
+    font-weight: 700;
+}
+
+
+/* =========================================================
+   INPUT
+========================================================= */
+
+.input-box {
+    position: relative;
+
+    display: flex;
+
+    align-items: center;
+}
+
+
+.input-box > i {
+    position: absolute;
+
+    left: 16px;
+
+    z-index: 2;
+
+    color: var(--green);
+
+    font-size: 13px;
+
+    pointer-events: none;
+}
+
+
+.input-box input {
+    width: 100%;
+
+    height: 48px;
+
+    padding:
+        0 45px;
+
+    border:
+        1px solid var(--border);
+
+    border-radius: 10px;
+
+    outline: none;
+
+    background: var(--white);
+
+    color: var(--green);
+
+    font-size: 12px;
+
+    transition: var(--transition);
+}
+
+
+.input-box input::placeholder {
+    color: #9aa19d;
+}
+
+
+.input-box input:focus {
+    border-color: var(--green);
+
+    box-shadow:
+        0 0 0 3px
+        rgba(18, 59, 42, 0.07);
+}
+
+
+/* =========================================================
+   PASSWORD TOGGLE
+========================================================= */
+
+.password-toggle {
+    position: absolute;
+
+    right: 7px;
+
+    top: 50%;
+
+    width: 34px;
+
+    height: 34px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    transform: translateY(-50%);
+
+    border: 0;
+
+    border-radius: 8px;
+
+    background: transparent;
+
+    color: var(--green);
+
+    cursor: pointer;
+
+    transition: var(--transition);
+}
+
+
+.password-toggle:hover {
+    background: var(--lime);
+}
+
+
+.password-toggle:focus-visible {
+    outline:
+        2px solid var(--lime);
+
+    outline-offset: 2px;
+}
+
+
+/* =========================================================
+   PASSWORD HINT
+========================================================= */
+
+.password-hint {
+    display: block;
+
+    margin-top: 5px;
+
+    color: var(--text-muted);
+
+    font-size: 10px;
+}
+
+
+/* =========================================================
+   ROLE OPTIONS
+========================================================= */
+
+.role-options {
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 10px;
+}
+
+
+.role-card {
+    position: relative;
+
+    display: block;
+
+    cursor: pointer;
+}
+
+
+.role-card input {
+    position: absolute;
+
+    opacity: 0;
+
+    pointer-events: none;
+}
+
+
+.role-content {
+    min-height: 66px;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 10px;
+
+    padding: 10px;
+
+    border:
+        1px solid var(--border);
+
+    border-radius: 10px;
+
+    background: var(--white);
+
+    transition: var(--transition);
+}
+
+
+.role-icon {
+    width: 36px;
+
+    height: 36px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    flex-shrink: 0;
+
+    border-radius: 9px;
+
+    background: rgba(215, 237, 85, 0.28);
+
+    color: var(--green);
+}
+
+
+.role-content > span:last-child {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 2px;
+}
+
+
+.role-content strong {
+    color: var(--green);
+
+    font-size: 12px;
+}
+
+
+.role-content small {
+    color: var(--text-muted);
+
+    font-size: 9px;
+}
+
+
+.role-card:hover .role-content {
+    border-color: var(--lime);
+
+    transform: translateY(-2px);
+}
+
+
+.role-card input:checked + .role-content {
+    border-color: var(--green);
+
+    background: var(--lime);
+
+    box-shadow:
+        0 8px 20px
+        rgba(18, 59, 42, 0.10);
+}
+
+
+/* =========================================================
+   ERROR
+========================================================= */
+
+.error-message {
+    display: block;
+
+    min-height: 15px;
+
+    margin-top: 4px;
+
+    color: #a33a3a;
+
+    font-size: 10px;
+}
+
+
+/* =========================================================
+   TERMS
+========================================================= */
+
+.terms-row {
+    margin-top: 2px;
+}
+
+
+.checkbox-label {
+    display: flex;
+
+    align-items: flex-start;
+
+    gap: 8px;
+
+    color: var(--text-muted);
+
+    font-size: 11px;
+
+    line-height: 1.5;
+
+    cursor: pointer;
+}
+
+
+.checkbox-label input {
+    width: 14px;
+
+    height: 14px;
+
+    margin-top: 1px;
+
+    accent-color: var(--green);
+
+    cursor: pointer;
+}
+
+
+.checkbox-label a {
+    color: var(--green);
+
+    font-weight: 700;
+
+    transition: var(--transition);
+}
+
+
+.checkbox-label a:hover {
+    color: #7d8f24;
+}
+
+
+/* =========================================================
+   SIGNUP BUTTON
+========================================================= */
+
+.signup-btn {
+    width: 100%;
+
+    min-height: 50px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 11px;
+
+    margin-top: 10px;
+
+    border:
+        1px solid var(--green);
+
+    border-radius: 10px;
+
+    background: var(--green);
+
+    color: var(--cream);
+
+    font-size: 12px;
+
+    font-weight: 700;
+
+    cursor: pointer;
+
+    transition: var(--transition);
+}
+
+
+.signup-btn i {
+    transition: var(--transition);
+}
+
+
+.signup-btn:hover {
+    background: var(--lime);
+
+    border-color: var(--lime);
+
+    color: var(--green);
+
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 10px 25px
+        rgba(18, 59, 42, 0.15);
+}
+
+
+.signup-btn:hover i {
+    transform: translateX(4px);
+}
+
+
+.signup-btn:focus-visible {
+    outline:
+        2px solid var(--lime);
+
+    outline-offset: 3px;
+}
+
+
+/* =========================================================
+   LOGIN LINK
+========================================================= */
+
+.login-link {
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 4px;
+
+    margin-top: 20px;
+
+    color: var(--text-muted);
+
+    font-size: 11px;
+}
+
+
+.login-link a {
+    color: var(--green);
+
+    font-weight: 800;
+
+    transition: var(--transition);
+}
+
+
+.login-link a:hover {
+    color: #7d8f24;
+}
+
+
+/* =========================================================
+   SUCCESS MESSAGE
+========================================================= */
+
+.success-message {
+    position: fixed;
+
+    right: 25px;
+
+    bottom: 25px;
+
+    z-index: 100;
+
+    display: none;
+
+    align-items: center;
+
+    gap: 12px;
+
+    min-width: 280px;
+
+    padding: 16px 18px;
+
+    border-radius: 12px;
+
+    background: var(--green);
+
+    color: var(--cream);
+
+    box-shadow:
+        0 15px 40px
+        rgba(18, 59, 42, 0.20);
+}
+
+
+.success-icon {
+    width: 34px;
+
+    height: 34px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background: var(--lime);
+
+    color: var(--green);
+}
+
+
+.success-message strong,
+.success-message span {
+    display: block;
+}
+
+
+.success-message strong {
+    margin-bottom: 2px;
+
+    font-size: 12px;
+}
+
+
+.success-message span {
+    font-size: 10px;
+
+    opacity: 0.85;
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 1000px) {
+
+    .signup-container {
+        max-width: 900px;
+
+        grid-template-columns: 1fr 1fr;
+    }
+
+
+    .image-content {
+        padding: 50px;
+    }
+
+
+    .signup-form-section {
+        padding: 40px 30px;
+    }
+
+
+    .image-content h1 {
+        font-size: 48px;
+    }
+
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 796px) {
+
+    .signup-page {
+        padding: 20px 15px;
+    }
+
+
+    .signup-container {
+        display: flex;
+
+        flex-direction: column;
+
+        max-width: 520px;
+
+        min-height: auto;
+
+        border-radius: 18px;
+    }
+
+
+    /* IMAGE */
+
+    .signup-image {
+        min-height: 440px;
+
+        background-position: center;
+    }
+
+
+    .image-overlay {
+        background:
+            rgba(18, 59, 42, 0.78);
+    }
+
+
+    .image-content {
+        max-width: 100%;
+
+        padding: 42px 28px;
+    }
+
+
+    .signup-logo {
+        margin-bottom: 30px;
+    }
+
+
+    .signup-logo img {
+        width: 130px;
+    }
+
+
+    .image-content h1 {
+        margin-bottom: 18px;
+
+        font-size: 40px;
+    }
+
+
+    .image-content > p {
+        margin-bottom: 28px;
+
+        font-size: 13px;
+    }
+
+
+    .image-features {
+        gap: 13px;
+    }
+
+
+    .feature-item {
+        font-size: 12px;
+    }
+
+
+    /* FORM */
+
+    .signup-form-section {
+        padding: 40px 25px;
+    }
+
+
+    .form-heading h2 {
+        font-size: 35px;
+    }
+
+}
+
+
+/* =========================================================
+   SMALL MOBILE
+========================================================= */
+
+@media (max-width: 480px) {
+
+    .signup-page {
+        padding: 10px;
+    }
+
+
+    .signup-container {
+        border-radius: 15px;
+    }
+
+
+    .signup-image {
+        min-height: 410px;
+    }
+
+
+    .image-content {
+        padding: 35px 22px;
+    }
+
+
+    .signup-logo img {
+        width: 115px;
+    }
+
+
+    .image-content h1 {
+        font-size: 34px;
+    }
+
+
+    .signup-form-section {
+        padding: 35px 20px;
+    }
+
+
+    .form-heading h2 {
+        font-size: 31px;
+    }
+
+
+    .role-options {
+        gap: 7px;
+    }
+
+
+    .role-content {
+        padding: 8px;
+    }
+
+
+    .role-icon {
+        width: 32px;
+        height: 32px;
+    }
+
+
+    .success-message {
+        left: 15px;
+
+        right: 15px;
+
+        bottom: 15px;
+
+        min-width: auto;
+    }
+
+}
+
+
+/* =========================================================
+   REDUCED MOTION
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    *,
+    *::before,
+    *::after {
+        scroll-behavior: auto !important;
+
+        animation-duration: 0.01ms !important;
+
+        animation-iteration-count: 1 !important;
+
+        transition-duration: 0.01ms !important;
+    }
+
+}
