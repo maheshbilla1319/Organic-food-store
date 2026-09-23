@@ -1,0 +1,708 @@
+/* =========================================================
+   GREENHARVEST SIGNUP PAGE
+   3 MAIN COLORS
+   01 - DEEP GREEN : #123B2A
+   02 - LIME        : #D7ED55
+   03 - CREAM       : #FFF8E8
+========================================================= */
+
+:root {
+    --primary: #123B2A;
+    --accent: #D7ED55;
+    --light: #FFF8E8;
+    --white: #ffffff;
+
+    --transition: 0.35s ease;
+}
+
+/* =========================================================
+   RESET
+========================================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    min-height: 100vh;
+    background: var(--light);
+    color: var(--primary);
+    font-family: "DM Sans", sans-serif;
+    overflow-x: hidden;
+}
+
+a {
+    text-decoration: none;
+}
+
+button,
+input {
+    font: inherit;
+}
+
+/* =========================================================
+   BACKGROUND
+========================================================= */
+
+.background-animation {
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    overflow: hidden;
+    pointer-events: none;
+}
+
+.background-animation::before,
+.background-animation::after {
+    content: "";
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(1px);
+}
+
+.background-animation::before {
+    width: 400px;
+    height: 400px;
+    top: -150px;
+    right: -100px;
+    background: rgba(215, 237, 85, 0.18);
+}
+
+.background-animation::after {
+    width: 350px;
+    height: 350px;
+    bottom: -150px;
+    left: -100px;
+    background: rgba(18, 59, 42, 0.08);
+}
+
+.floating-leaf {
+    position: absolute;
+    color: rgba(18, 59, 42, 0.08);
+    font-size: 45px;
+    animation: floatingLeaf 8s ease-in-out infinite;
+}
+
+.leaf-one {
+    top: 12%;
+    left: 5%;
+}
+
+.leaf-two {
+    top: 70%;
+    left: 10%;
+    animation-delay: 2s;
+}
+
+.leaf-three {
+    top: 20%;
+    right: 5%;
+    animation-delay: 3s;
+}
+
+.leaf-four {
+    bottom: 10%;
+    right: 8%;
+    animation-delay: 5s;
+}
+
+@keyframes floatingLeaf {
+    0%,
+    100% {
+        transform: translateY(0) rotate(0deg);
+    }
+
+    50% {
+        transform: translateY(-25px) rotate(15deg);
+    }
+}
+
+/* =========================================================
+   PAGE
+========================================================= */
+
+.signup-page {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 40px 20px;
+}
+
+.signup-container {
+    width: min(1150px, 100%);
+    min-height: 720px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    background: var(--white);
+    border-radius: 28px;
+    overflow: hidden;
+    box-shadow: 0 25px 70px rgba(18, 59, 42, 0.18);
+}
+
+/* =========================================================
+   IMAGE SIDE
+========================================================= */
+
+.signup-image {
+    position: relative;
+    min-height: 720px;
+    overflow: hidden;
+    background: var(--primary);
+}
+
+.signup-image > img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.image-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(18, 59, 42, 0.72);
+}
+
+.image-content {
+    position: relative;
+    z-index: 2;
+    height: 100%;
+    padding: 45px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    color: var(--white);
+}
+
+.signup-logo {
+    position: absolute;
+    top: 35px;
+    left: 40px;
+}
+
+.signup-logo img {
+    width: 125px;
+    height: 70px;
+    object-fit: contain;
+}
+
+.image-label {
+    width: fit-content;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 18px;
+    padding: 8px 14px;
+    border: 1px solid rgba(215, 237, 85, 0.5);
+    border-radius: 100px;
+    color: var(--accent);
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: 1.5px;
+}
+
+.image-content h1 {
+    max-width: 450px;
+    margin-bottom: 20px;
+    font-family: "Playfair Display", serif;
+    font-size: clamp(38px, 4vw, 55px);
+    line-height: 1.08;
+}
+
+.image-content h1 span {
+    color: var(--accent);
+}
+
+.image-content p {
+    max-width: 430px;
+    margin-bottom: 35px;
+    color: rgba(255, 255, 255, 0.75);
+    font-size: 14px;
+    line-height: 1.8;
+}
+
+.image-features {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.image-features div {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 13px;
+    border: 1px solid rgba(255, 255, 255, 0.16);
+    border-radius: 100px;
+    background: rgba(255, 255, 255, 0.07);
+    font-size: 11px;
+}
+
+.image-features i {
+    color: var(--accent);
+}
+
+/* =========================================================
+   FORM SIDE
+========================================================= */
+
+.signup-form-section {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 55px 50px;
+    background: var(--white);
+}
+
+.form-wrapper {
+    width: min(440px, 100%);
+}
+
+.form-heading {
+    margin-bottom: 28px;
+}
+
+.small-label {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    margin-bottom: 12px;
+    color: var(--primary);
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: 1.5px;
+}
+
+.small-label i {
+    color: var(--primary);
+}
+
+.form-heading h2 {
+    margin-bottom: 8px;
+    font-family: "Playfair Display", serif;
+    font-size: 34px;
+    line-height: 1.15;
+}
+
+.form-heading h2 span {
+    color: var(--primary);
+}
+
+.form-heading p {
+    color: rgba(18, 59, 42, 0.62);
+    font-size: 13px;
+    line-height: 1.7;
+}
+
+/* =========================================================
+   FORM
+========================================================= */
+
+.form-group {
+    margin-bottom: 17px;
+}
+
+.form-group > label {
+    display: block;
+    margin-bottom: 7px;
+    color: var(--primary);
+    font-size: 12px;
+    font-weight: 700;
+}
+
+.input-box {
+    position: relative;
+    display: flex;
+    align-items: center;
+    border: 1px solid rgba(18, 59, 42, 0.18);
+    border-radius: 11px;
+    background: var(--white);
+    transition:
+        border-color var(--transition),
+        box-shadow var(--transition);
+}
+
+.input-box:focus-within {
+    border-color: var(--primary);
+    box-shadow: 0 0 0 4px rgba(18, 59, 42, 0.07);
+}
+
+.input-box > i {
+    width: 45px;
+    text-align: center;
+    color: rgba(18, 59, 42, 0.55);
+    font-size: 13px;
+}
+
+.input-box input {
+    width: 100%;
+    height: 48px;
+    padding: 0 42px 0 0;
+    border: 0;
+    outline: 0;
+    background: transparent;
+    color: var(--primary);
+    font-size: 13px;
+}
+
+.input-box input::placeholder {
+    color: rgba(18, 59, 42, 0.4);
+}
+
+.password-toggle {
+    position: absolute;
+    right: 12px;
+    width: 30px;
+    height: 30px;
+    border: 0;
+    background: transparent;
+    color: rgba(18, 59, 42, 0.55);
+    cursor: pointer;
+}
+
+.password-toggle:hover {
+    color: var(--primary);
+}
+
+.password-hint {
+    display: block;
+    margin-top: 5px;
+    color: rgba(18, 59, 42, 0.5);
+    font-size: 10px;
+}
+
+/* =========================================================
+   ROLE CARDS
+========================================================= */
+
+.role-options {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+}
+
+.role-card {
+    cursor: pointer;
+}
+
+.role-card input {
+    position: absolute;
+    opacity: 0;
+    pointer-events: none;
+}
+
+.role-content {
+    min-height: 70px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px;
+    border: 1px solid rgba(18, 59, 42, 0.18);
+    border-radius: 11px;
+    transition:
+        background var(--transition),
+        border-color var(--transition),
+        transform var(--transition);
+}
+
+.role-card:hover .role-content {
+    transform: translateY(-2px);
+    border-color: var(--primary);
+}
+
+.role-card input:checked + .role-content {
+    background: rgba(215, 237, 85, 0.22);
+    border-color: var(--primary);
+}
+
+.role-icon {
+    width: 38px;
+    height: 38px;
+    min-width: 38px;
+    display: grid;
+    place-items: center;
+    border-radius: 9px;
+    background: var(--primary);
+    color: var(--accent);
+}
+
+.role-content strong {
+    display: block;
+    margin-bottom: 2px;
+    color: var(--primary);
+    font-size: 12px;
+}
+
+.role-content small {
+    display: block;
+    color: rgba(18, 59, 42, 0.5);
+    font-size: 9px;
+}
+
+/* =========================================================
+   ERRORS
+========================================================= */
+
+.error-message {
+    display: block;
+    min-height: 14px;
+    margin-top: 5px;
+    color: var(--primary);
+    font-size: 10px;
+    font-weight: 600;
+}
+
+.input-error {
+    border-color: var(--primary) !important;
+}
+
+/* =========================================================
+   TERMS
+========================================================= */
+
+.terms-row {
+    margin-top: 2px;
+}
+
+.checkbox-label {
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+    color: rgba(18, 59, 42, 0.62);
+    font-size: 11px;
+    line-height: 1.5;
+    cursor: pointer;
+}
+
+.checkbox-label input {
+    width: 15px;
+    height: 15px;
+    margin-top: 1px;
+    accent-color: var(--primary);
+}
+
+.checkbox-label a {
+    color: var(--primary);
+    font-weight: 800;
+    text-decoration: underline;
+}
+
+/* =========================================================
+   SIGNUP BUTTON
+========================================================= */
+
+.signup-btn {
+    width: 100%;
+    height: 52px;
+    margin-top: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    border: 0;
+    border-radius: 11px;
+    background: var(--primary);
+    color: var(--white);
+    font-size: 13px;
+    font-weight: 800;
+    cursor: pointer;
+    transition:
+        background var(--transition),
+        color var(--transition),
+        transform var(--transition);
+}
+
+.signup-btn:hover {
+    background: var(--accent);
+    color: var(--primary);
+    transform: translateY(-2px);
+}
+
+.signup-btn i {
+    transition: transform var(--transition);
+}
+
+.signup-btn:hover i {
+    transform: translateX(5px);
+}
+
+/* =========================================================
+   LOGIN LINK
+========================================================= */
+
+.login-link {
+    margin-top: 18px;
+    text-align: center;
+    color: rgba(18, 59, 42, 0.55);
+    font-size: 11px;
+}
+
+.login-link a {
+    margin-left: 4px;
+    color: var(--primary);
+    font-weight: 800;
+}
+
+.login-link a:hover {
+    color: var(--primary);
+    text-decoration: underline;
+}
+
+/* =========================================================
+   SUCCESS MESSAGE
+========================================================= */
+
+.success-message {
+    position: fixed;
+    right: 25px;
+    bottom: 25px;
+    z-index: 9999;
+    min-width: 310px;
+    display: flex;
+    align-items: center;
+    gap: 13px;
+    padding: 15px 18px;
+    border-radius: 14px;
+    background: var(--primary);
+    color: var(--white);
+    box-shadow: 0 15px 40px rgba(18, 59, 42, 0.25);
+    transform: translateY(130px);
+    opacity: 0;
+    visibility: hidden;
+    transition:
+        transform var(--transition),
+        opacity var(--transition),
+        visibility var(--transition);
+}
+
+.success-message.show {
+    transform: translateY(0);
+    opacity: 1;
+    visibility: visible;
+}
+
+.success-icon {
+    width: 38px;
+    height: 38px;
+    display: grid;
+    place-items: center;
+    border-radius: 50%;
+    background: var(--accent);
+    color: var(--primary);
+}
+
+.success-message strong,
+.success-message span {
+    display: block;
+}
+
+.success-message strong {
+    margin-bottom: 2px;
+    font-size: 12px;
+}
+
+.success-message span {
+    color: rgba(255, 255, 255, 0.65);
+    font-size: 10px;
+}
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+@media (max-width: 950px) {
+
+    .signup-container {
+        grid-template-columns: 1fr;
+        max-width: 600px;
+    }
+
+    .signup-image {
+        min-height: 390px;
+    }
+
+    .image-content {
+        padding: 45px;
+    }
+
+    .image-content h1 {
+        font-size: 42px;
+    }
+
+    .signup-form-section {
+        padding: 50px 40px;
+    }
+}
+
+@media (max-width: 600px) {
+
+    .signup-page {
+        padding: 15px;
+    }
+
+    .signup-container {
+        border-radius: 20px;
+    }
+
+    .signup-image {
+        min-height: 340px;
+    }
+
+    .image-content {
+        padding: 35px 25px;
+    }
+
+    .signup-logo {
+        top: 20px;
+        left: 25px;
+    }
+
+    .signup-logo img {
+        width: 100px;
+        height: 58px;
+    }
+
+    .image-content h1 {
+        font-size: 34px;
+    }
+
+    .image-content p {
+        font-size: 12px;
+    }
+
+    .image-features {
+        gap: 7px;
+    }
+
+    .image-features div {
+        padding: 8px 10px;
+        font-size: 9px;
+    }
+
+    .signup-form-section {
+        padding: 35px 22px;
+    }
+
+    .form-heading h2 {
+        font-size: 29px;
+    }
+
+    .role-options {
+        grid-template-columns: 1fr;
+    }
+
+    .success-message {
+        left: 15px;
+        right: 15px;
+        bottom: 15px;
+        min-width: auto;
+    }
+}

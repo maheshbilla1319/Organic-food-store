@@ -1,0 +1,1626 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>GreenHarvest | Admin Dashboard</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700;800&display=swap"
+        rel="stylesheet"
+    >
+
+    <!-- Font Awesome -->
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    >
+
+    <!-- AOS -->
+    <link
+        rel="stylesheet"
+        href="https://unpkg.com/aos@2.3.4/dist/aos.css"
+    >
+
+    <!-- Admin CSS -->
+    <link rel="stylesheet" href="css/admin.css">
+</head>
+
+<body>
+
+<div class="admin-layout">
+
+    <!-- =====================================
+         SIDEBAR OVERLAY
+    ====================================== -->
+    <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+
+    <!-- =====================================
+         SIDEBAR
+    ====================================== -->
+    <aside class="sidebar" id="sidebar">
+
+        <div class="sidebar-top">
+
+            <!-- Logo -->
+            <a href="#dashboard" class="logo" aria-label="GreenHarvest Home">
+    <img src="assets/imglogo.webp" alt="GreenHarvest Logo" class="logo-image">
+</a>
+
+            <!-- Close Mobile -->
+            <button
+                type="button"
+                class="sidebar-close"
+                id="sidebarClose"
+                aria-label="Close sidebar"
+                title="Close sidebar"
+            >
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+
+        </div>
+
+
+        <!-- Navigation -->
+        <nav class="sidebar-nav">
+
+            <p class="nav-title">MAIN MENU</p>
+
+            <a
+                href="#dashboard"
+                class="nav-link active"
+                data-section="dashboard"
+            >
+                <span class="nav-icon">
+                    <i class="fa-solid fa-chart-line"></i>
+                </span>
+
+                <span>Dashboard</span>
+            </a>
+
+
+            <a
+                href="#products"
+                class="nav-link"
+                data-section="products"
+            >
+                <span class="nav-icon">
+                    <i class="fa-solid fa-basket-shopping"></i>
+                </span>
+
+                <span>Organic Foods</span>
+
+                <span class="nav-count">
+                    24
+                </span>
+            </a>
+
+
+            <a
+                href="#orders"
+                class="nav-link"
+                data-section="orders"
+            >
+                <span class="nav-icon">
+                    <i class="fa-solid fa-box-open"></i>
+                </span>
+
+                <span>Orders</span>
+
+                <span class="nav-count">
+                    18
+                </span>
+            </a>
+
+
+            <a
+                href="#customers"
+                class="nav-link"
+                data-section="customers"
+            >
+                <span class="nav-icon">
+                    <i class="fa-solid fa-users"></i>
+                </span>
+
+                <span>Customers</span>
+            </a>
+
+
+            <a
+                href="#categories"
+                class="nav-link"
+                data-section="categories"
+            >
+                <span class="nav-icon">
+                    <i class="fa-solid fa-layer-group"></i>
+                </span>
+
+                <span>Categories</span>
+            </a>
+
+
+            <p class="nav-title second-title">COMMUNICATION</p>
+
+
+            <a
+                href="#messages"
+                class="nav-link"
+                data-section="messages"
+            >
+                <span class="nav-icon">
+                    <i class="fa-regular fa-envelope"></i>
+                </span>
+
+                <span>Contact Messages</span>
+
+                <span class="nav-count message-count">
+                    5
+                </span>
+            </a>
+
+
+            <a
+                href="#newsletter"
+                class="nav-link"
+                data-section="newsletter"
+            >
+                <span class="nav-icon">
+                    <i class="fa-regular fa-paper-plane"></i>
+                </span>
+
+                <span>Newsletter</span>
+            </a>
+
+
+            <p class="nav-title second-title">SYSTEM</p>
+
+
+            <a
+                href="#settings"
+                class="nav-link"
+                data-section="settings"
+            >
+                <span class="nav-icon">
+                    <i class="fa-solid fa-gear"></i>
+                </span>
+
+                <span>Settings</span>
+            </a>
+
+        </nav>
+
+
+        <!-- Sidebar Bottom -->
+        <div class="sidebar-bottom">
+
+            <div class="admin-mini-profile">
+
+                <div class="profile-avatar">
+                    <i class="fa-solid fa-user"></i>
+                </div>
+
+                <div class="profile-info">
+
+                    <strong>GreenHarvest Admin</strong>
+
+                    <small>Administrator</small>
+
+                </div>
+
+            </div>
+
+      <button 
+    type="button" 
+    class="logout-button" 
+    id="logoutButton"
+    title="Logout"
+    aria-label="Logout"
+>
+    <i class="fa-solid fa-right-from-bracket"></i>
+    Logout
+</button>
+
+        </div>
+
+    </aside>
+
+
+    <!-- =====================================
+         MAIN CONTENT
+    ====================================== -->
+    <main class="main-content">
+
+
+        <!-- =================================
+             HEADER
+        ================================== -->
+        <header class="dashboard-header">
+
+            <div class="header-left">
+
+                <button
+                    type="button"
+                    class="menu-toggle"
+                    id="menuToggle"
+                    aria-label="Open sidebar"
+                    title="Open sidebar"
+                >
+                    <i class="fa-solid fa-bars"></i>
+                </button>
+
+
+                <div class="page-heading">
+
+                    <span id="headerEyebrow">
+                        GREENHARVEST ADMIN
+                    </span>
+
+                    <h1 id="pageTitle">
+                        Dashboard
+                    </h1>
+
+                </div>
+
+            </div>
+
+
+            <div class="header-right">
+
+                <button
+                    type="button"
+                    class="header-icon"
+                    aria-label="Notifications"
+                    title="Notifications"
+                >
+                    <i class="fa-regular fa-bell"></i>
+                    <span class="notification-dot"></span>
+                </button>
+
+
+                <div class="header-divider"></div>
+
+
+                <div class="header-profile">
+
+                    <div class="header-avatar">
+                        GH
+                    </div>
+
+                    <div class="header-profile-info">
+
+                        <strong>Admin</strong>
+
+                        <small>Administrator</small>
+
+                    </div>
+
+                    <i class="fa-solid fa-chevron-down"></i>
+
+                </div>
+
+            </div>
+
+        </header>
+
+
+        <!-- =================================
+             PAGE CONTENT
+        ================================== -->
+        <div class="content-wrapper">
+
+
+            <!-- =================================
+                 DASHBOARD SECTION
+            ================================== -->
+            <section
+                class="dashboard-section page-section active-section"
+                id="dashboard"
+            >
+
+                <div
+                    class="welcome-banner"
+                    data-aos="fade-up"
+                >
+
+                    <div class="welcome-content">
+
+                        <span class="section-label">
+                            <i class="fa-solid fa-seedling"></i>
+                            ORGANIC STORE MANAGEMENT
+                        </span>
+
+                        <h2>
+                            Good morning,
+                            <span>Admin!</span>
+                        </h2>
+
+                        <p>
+                            Manage your organic products, orders,
+                            customers and store activity from one place.
+                        </p>
+
+                    </div>
+
+
+                    <div class="welcome-icon">
+
+                        <i class="fa-solid fa-leaf"></i>
+
+                    </div>
+
+                </div>
+
+
+                <!-- Stats -->
+                <div class="stats-grid">
+
+                    <article
+                        class="stat-card"
+                        data-aos="fade-up"
+                        data-aos-delay="100"
+                    >
+
+                        <div class="stat-icon">
+                            <i class="fa-solid fa-indian-rupee-sign"></i>
+                        </div>
+
+                        <div class="stat-content">
+
+                            <span>Total Sales</span>
+
+                            <strong>₹2,48,560</strong>
+
+                            <small class="positive">
+                                <i class="fa-solid fa-arrow-up"></i>
+                                12.5% this month
+                            </small>
+
+                        </div>
+
+                    </article>
+
+
+                    <article
+                        class="stat-card"
+                        data-aos="fade-up"
+                        data-aos-delay="150"
+                    >
+
+                        <div class="stat-icon">
+                            <i class="fa-solid fa-basket-shopping"></i>
+                        </div>
+
+                        <div class="stat-content">
+
+                            <span>Organic Products</span>
+
+                            <strong>24</strong>
+
+                            <small>
+                                4 categories
+                            </small>
+
+                        </div>
+
+                    </article>
+
+
+                    <article
+                        class="stat-card"
+                        data-aos="fade-up"
+                        data-aos-delay="200"
+                    >
+
+                        <div class="stat-icon">
+                            <i class="fa-solid fa-box"></i>
+                        </div>
+
+                        <div class="stat-content">
+
+                            <span>Total Orders</span>
+
+                            <strong>1,248</strong>
+
+                            <small class="positive">
+                                <i class="fa-solid fa-arrow-up"></i>
+                                8.4% this month
+                            </small>
+
+                        </div>
+
+                    </article>
+
+
+                    <article
+                        class="stat-card"
+                        data-aos="fade-up"
+                        data-aos-delay="250"
+                    >
+
+                        <div class="stat-icon">
+                            <i class="fa-solid fa-users"></i>
+                        </div>
+
+                        <div class="stat-content">
+
+                            <span>Customers</span>
+
+                            <strong>3,856</strong>
+
+                            <small class="positive">
+                                <i class="fa-solid fa-arrow-up"></i>
+                                5.8% this month
+                            </small>
+
+                        </div>
+
+                    </article>
+
+                </div>
+
+
+                <!-- Dashboard Grid -->
+                <div class="dashboard-grid">
+
+
+                    <!-- Recent Orders -->
+                    <div
+                        class="dashboard-card orders-card"
+                        data-aos="fade-right"
+                    >
+
+                        <div class="card-header">
+
+                            <div>
+                                <span class="card-label">
+                                    STORE ACTIVITY
+                                </span>
+
+                                <h3>Recent Orders</h3>
+                            </div>
+
+                   <a
+    href="404.html"
+    class="view-all">
+
+    View All
+
+    <i class="fa-solid fa-arrow-right"></i>
+
+</a>
+
+                        </div>
+
+
+                        <div class="table-wrap">
+
+                            <table>
+
+                                <thead>
+                                    <tr>
+                                        <th>Order</th>
+                                        <th>Customer</th>
+                                        <th>Product</th>
+                                        <th>Amount</th>
+                                        <th>Status</th>
+                                    </tr>
+                                </thead>
+
+                                <tbody>
+
+                                    <tr>
+                                        <td>#GH1024</td>
+                                        <td>Rahul Kumar</td>
+                                        <td>Organic Apples</td>
+                                        <td>₹1,240</td>
+                                        <td>
+                                            <span class="status delivered">
+                                                Delivered
+                                            </span>
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>#GH1023</td>
+                                        <td>Anjali Rao</td>
+                                        <td>Fresh Vegetables</td>
+                                        <td>₹860</td>
+                                        <td>
+                                            <span class="status pending">
+                                                Pending
+                                            </span>
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>#GH1022</td>
+                                        <td>Arun Kumar</td>
+                                        <td>Organic Honey</td>
+                                        <td>₹540</td>
+                                        <td>
+                                            <span class="status shipped">
+                                                Shipped
+                                            </span>
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>#GH1021</td>
+                                        <td>Priya Singh</td>
+                                        <td>Brown Rice</td>
+                                        <td>₹720</td>
+                                        <td>
+                                            <span class="status delivered">
+                                                Delivered
+                                            </span>
+                                        </td>
+                                    </tr>
+
+                                </tbody>
+
+                            </table>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- Top Products -->
+                    <div
+                        class="dashboard-card"
+                        data-aos="fade-left"
+                    >
+
+                        <div class="card-header">
+
+                            <div>
+                                <span class="card-label">
+                                    BEST SELLERS
+                                </span>
+
+                                <h3>Top Organic Foods</h3>
+                            </div>
+
+                   
+                   <a
+    href="404.html"
+    class="view-all">
+
+    View All
+
+    <i class="fa-solid fa-arrow-right"></i>
+
+</a>
+
+                        </div>
+
+
+                        <div class="mini-products">
+
+                            <div class="mini-product">
+
+                                <img
+                                    src="assets/f6.webp"
+                                    alt="Organic apples"
+                                >
+
+                                <div>
+                                    <strong>Organic Apples</strong>
+                                    <small>124 sold</small>
+                                </div>
+
+                                <b>₹180</b>
+
+                            </div>
+
+
+                            <div class="mini-product">
+
+                                <img
+                                    src="assets/f2.webp"
+                                    alt="Organic vegetables"
+                                >
+
+                                <div>
+                                    <strong>Fresh Vegetables</strong>
+                                    <small>98 sold</small>
+                                </div>
+
+                                <b>₹220</b>
+
+                            </div>
+
+
+                            <div class="mini-product">
+
+                                <img
+                                    src="assets/f8.webp"
+                                    alt="Organic honey"
+                                >
+
+                                <div>
+                                    <strong>Organic Honey</strong>
+                                    <small>82 sold</small>
+                                </div>
+
+                                <b>₹350</b>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- Quick Actions -->
+                <div
+                    class="quick-actions"
+                    data-aos="fade-up"
+                >
+
+                    <div class="quick-heading">
+
+                        <span class="card-label">
+                            QUICK ACTIONS
+                        </span>
+
+                        <h3>Manage your store</h3>
+
+                    </div>
+
+
+                    <div class="action-grid">
+
+                        <button
+                            type="button"
+                            class="action-card"
+                            data-open-section="products"
+                        >
+
+                            <span>
+                                <i class="fa-solid fa-plus"></i>
+                            </span>
+
+                            <strong>Add Product</strong>
+
+                            <small>
+                                Add a new organic food
+                            </small>
+
+                        </button>
+
+
+                        <button
+                            type="button"
+                            class="action-card"
+                            data-open-section="orders"
+                        >
+
+                            <span>
+                                <i class="fa-solid fa-box"></i>
+                            </span>
+
+                            <strong>Manage Orders</strong>
+
+                            <small>
+                                View customer orders
+                            </small>
+
+                        </button>
+
+
+                        <button
+                            type="button"
+                            class="action-card"
+                            data-open-section="customers"
+                        >
+
+                            <span>
+                                <i class="fa-solid fa-user-plus"></i>
+                            </span>
+
+                            <strong>Customers</strong>
+
+                            <small>
+                                Manage customers
+                            </small>
+
+                        </button>
+
+
+                        <button
+                            type="button"
+                            class="action-card"
+                            data-open-section="messages"
+                        >
+
+                            <span>
+                                <i class="fa-regular fa-envelope"></i>
+                            </span>
+
+                            <strong>Messages</strong>
+
+                            <small>
+                                Check contact messages
+                            </small>
+
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- =================================
+                 PRODUCTS SECTION
+            ================================== -->
+            <section
+                class="page-section"
+                id="products"
+            >
+
+                <div class="section-top">
+
+                    <div>
+                        <span class="section-label">
+                            ORGANIC STORE
+                        </span>
+
+                        <h2>Organic Foods</h2>
+
+                        <p>
+                            Manage your fresh and organic food products.
+                        </p>
+                    </div>
+
+                    <button
+                        type="button"
+                        class="primary-btn"
+                        id="addProductBtn"
+                    >
+                        <i class="fa-solid fa-plus"></i>
+                        Add Product
+                    </button>
+
+                </div>
+
+
+                <div class="products-grid">
+
+                    <article class="product-card">
+
+                        <div class="product-image">
+
+                            <img
+                                src="assets/f6.webp"
+                                alt="Organic apples"
+                            >
+
+                            <span class="stock-badge">
+                                In Stock
+                            </span>
+
+                        </div>
+
+                        <div class="product-info">
+
+                            <span>FRUITS</span>
+
+                            <h3>Organic Apples</h3>
+
+                            <p>Fresh farm-picked organic apples.</p>
+
+                            <div class="product-bottom">
+
+                                <strong>₹180 / kg</strong>
+
+                                <button
+                                    type="button"
+                                    class="small-action"
+                                    aria-label="Edit Organic Apples"
+                                    title="Edit product"
+                                >
+                                    <i class="fa-solid fa-pen"></i>
+                                </button>
+
+                            </div>
+
+                        </div>
+
+                    </article>
+
+
+                    <article class="product-card">
+
+                        <div class="product-image">
+
+                            <img
+                                src="assets/f9.webp"
+                                alt="Organic vegetables"
+                            >
+
+                            <span class="stock-badge">
+                                In Stock
+                            </span>
+
+                        </div>
+
+                        <div class="product-info">
+
+                            <span>VEGETABLES</span>
+
+                            <h3>Fresh Vegetables</h3>
+
+                            <p>Seasonal vegetables from local farms.</p>
+
+                            <div class="product-bottom">
+
+                                <strong>₹220 / kg</strong>
+
+                                <button
+                                    type="button"
+                                    class="small-action"
+                                    aria-label="Edit Fresh Vegetables"
+                                    title="Edit product"
+                                >
+                                    <i class="fa-solid fa-pen"></i>
+                                </button>
+
+                            </div>
+
+                        </div>
+
+                    </article>
+
+
+                    <article class="product-card">
+
+                        <div class="product-image">
+
+                            <img
+                                src="assets/f18.webp"
+                                alt="Organic honey"
+                            >
+
+                            <span class="stock-badge">
+                                In Stock
+                            </span>
+
+                        </div>
+
+                        <div class="product-info">
+
+                            <span>NATURAL</span>
+
+                            <h3>Organic Honey</h3>
+
+                            <p>Pure natural honey from trusted farms.</p>
+
+                            <div class="product-bottom">
+
+                                <strong>₹350 / jar</strong>
+
+                                <button
+                                    type="button"
+                                    class="small-action"
+                                    aria-label="Edit Organic Honey"
+                                    title="Edit product"
+                                >
+                                    <i class="fa-solid fa-pen"></i>
+                                </button>
+
+                            </div>
+
+                        </div>
+
+                    </article>
+
+
+                    <article class="product-card">
+
+                        <div class="product-image">
+
+                            <img
+                                src="assets/f22.webp"
+                                alt="Organic brown "
+                            >
+
+                            <span class="stock-badge">
+                                In Stock
+                            </span>
+
+                        </div>
+
+                        <div class="product-info">
+
+                            <span>GRAINS</span>
+
+                            <h3>Brown Rice</h3>
+
+                            <p>Wholesome organic brown rice.</p>
+
+                            <div class="product-bottom">
+
+                                <strong>₹160 / kg</strong>
+
+                                <button
+                                    type="button"
+                                    class="small-action"
+                                    aria-label="Edit Brown Rice"
+                                    title="Edit product"
+                                >
+                                    <i class="fa-solid fa-pen"></i>
+                                </button>
+
+                            </div>
+
+                        </div>
+
+                    </article>
+
+                </div>
+
+            </section>
+
+
+            <!-- =================================
+                 ORDERS SECTION
+            ================================== -->
+            <section
+                class="page-section"
+                id="orders"
+            >
+
+                <div class="section-top">
+
+                    <div>
+                        <span class="section-label">
+                            STORE MANAGEMENT
+                        </span>
+
+                        <h2>Orders</h2>
+
+                        <p>
+                            Track and manage customer orders.
+                        </p>
+                    </div>
+
+                    <button
+                        type="button"
+                        class="filter-btn"
+                    >
+                        <i class="fa-solid fa-filter"></i>
+                        Filter
+                    </button>
+
+                </div>
+
+
+                <div class="full-card">
+
+                    <div class="table-wrap">
+
+                        <table class="large-table">
+
+                            <thead>
+
+                                <tr>
+                                    <th>Order ID</th>
+                                    <th>Customer</th>
+                                    <th>Product</th>
+                                    <th>Date</th>
+                                    <th>Amount</th>
+                                    <th>Status</th>
+                                </tr>
+
+                            </thead>
+
+                            <tbody>
+
+                                <tr>
+                                    <td>#GH1024</td>
+                                    <td>Rahul Kumar</td>
+                                    <td>Organic Apples</td>
+                                    <td>22 Sep 2026</td>
+                                    <td>₹1,240</td>
+                                    <td>
+                                        <span class="status delivered">
+                                            Delivered
+                                        </span>
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td>#GH1023</td>
+                                    <td>Anjali Rao</td>
+                                    <td>Fresh Vegetables</td>
+                                    <td>22 Sep 2026</td>
+                                    <td>₹860</td>
+                                    <td>
+                                        <span class="status pending">
+                                            Pending
+                                        </span>
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td>#GH1022</td>
+                                    <td>Arun Kumar</td>
+                                    <td>Organic Honey</td>
+                                    <td>21 Sep 2026</td>
+                                    <td>₹540</td>
+                                    <td>
+                                        <span class="status shipped">
+                                            Shipped
+                                        </span>
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td>#GH1021</td>
+                                    <td>Priya Singh</td>
+                                    <td>Brown Rice</td>
+                                    <td>21 Sep 2026</td>
+                                    <td>₹720</td>
+                                    <td>
+                                        <span class="status delivered">
+                                            Delivered
+                                        </span>
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td>#GH1020</td>
+                                    <td>Vikram Rao</td>
+                                    <td>Organic Tomatoes</td>
+                                    <td>20 Sep 2026</td>
+                                    <td>₹430</td>
+                                    <td>
+                                        <span class="status cancelled">
+                                            Cancelled
+                                        </span>
+                                    </td>
+                                </tr>
+
+                            </tbody>
+
+                        </table>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- =================================
+                 CUSTOMERS
+            ================================== -->
+            <section
+                class="page-section"
+                id="customers"
+            >
+
+                <div class="section-top">
+
+                    <div>
+                        <span class="section-label">
+                            CUSTOMER MANAGEMENT
+                        </span>
+
+                        <h2>Customers</h2>
+
+                        <p>
+                            View your GreenHarvest customers.
+                        </p>
+                    </div>
+
+                </div>
+
+
+                <div class="customers-grid">
+
+                    <div class="customer-card">
+
+                        <div class="customer-avatar">RK</div>
+
+                        <div>
+                            <h3>Rahul Kumar</h3>
+                            <p>rahul@gmail.com</p>
+                        </div>
+
+                        <span class="customer-status">
+                            Active
+                        </span>
+
+                    </div>
+
+
+                    <div class="customer-card">
+
+                        <div class="customer-avatar">AR</div>
+
+                        <div>
+                            <h3>Anjali Rao</h3>
+                            <p>anjali@gmail.com</p>
+                        </div>
+
+                        <span class="customer-status">
+                            Active
+                        </span>
+
+                    </div>
+
+
+                    <div class="customer-card">
+
+                        <div class="customer-avatar">PK</div>
+
+                        <div>
+                            <h3>Priya Kumar</h3>
+                            <p>priya@gmail.com</p>
+                        </div>
+
+                        <span class="customer-status">
+                            Active
+                        </span>
+
+                    </div>
+
+
+                    <div class="customer-card">
+
+                        <div class="customer-avatar">VS</div>
+
+                        <div>
+                            <h3>Vikram Singh</h3>
+                            <p>vikram@gmail.com</p>
+                        </div>
+
+                        <span class="customer-status">
+                            Active
+                        </span>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- =================================
+                 CATEGORIES
+            ================================== -->
+            <section
+                class="page-section"
+                id="categories"
+            >
+
+                <div class="section-top">
+
+                    <div>
+                        <span class="section-label">
+                            PRODUCT ORGANIZATION
+                        </span>
+
+                        <h2>Categories</h2>
+
+                        <p>
+                            Manage your organic food categories.
+                        </p>
+                    </div>
+
+                </div>
+
+
+                <div class="category-grid">
+
+                    <div class="category-card">
+                        <span>
+                            <i class="fa-solid fa-apple-whole"></i>
+                        </span>
+                        <h3>Fresh Fruits</h3>
+                        <strong>8 Products</strong>
+                    </div>
+
+
+                    <div class="category-card">
+                        <span>
+                            <i class="fa-solid fa-carrot"></i>
+                        </span>
+                        <h3>Vegetables</h3>
+                        <strong>7 Products</strong>
+                    </div>
+
+
+                    <div class="category-card">
+                        <span>
+                            <i class="fa-solid fa-wheat-awn"></i>
+                        </span>
+                        <h3>Organic Grains</h3>
+                        <strong>5 Products</strong>
+                    </div>
+
+
+                    <div class="category-card">
+                        <span>
+                            <i class="fa-solid fa-jar"></i>
+                        </span>
+                        <h3>Natural Foods</h3>
+                        <strong>4 Products</strong>
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- =================================
+                 CONTACT MESSAGES
+            ================================== -->
+            <section
+                class="page-section"
+                id="messages"
+            >
+
+                <div class="section-top">
+
+                    <div>
+                        <span class="section-label">
+                            CONTACT CENTER
+                        </span>
+
+                        <h2>Contact Messages</h2>
+
+                        <p>
+                            Messages received from your website visitors.
+                        </p>
+                    </div>
+
+                    <span class="message-total">
+                        5 New Messages
+                    </span>
+
+                </div>
+
+
+                <div class="messages-grid">
+
+                    <article class="message-card unread">
+
+                        <div class="message-top">
+
+                            <div class="message-avatar">
+                                RK
+                            </div>
+
+                            <div>
+                                <h3>Rahul Kumar</h3>
+                                <small>rahul@gmail.com</small>
+                            </div>
+
+                            <span>Today</span>
+
+                        </div>
+
+                        <h4>Question about organic delivery</h4>
+
+                        <p>
+                            Hi GreenHarvest, I would like to know
+                            about your delivery options for Hyderabad.
+                        </p>
+
+                        <div class="message-actions">
+
+                            <button
+                                type="button"
+                                class="reply-btn"
+                            >
+                                <i class="fa-solid fa-reply"></i>
+                                Reply
+                            </button>
+
+                            <button
+                                type="button"
+                                class="delete-btn"
+                                aria-label="Delete message"
+                                title="Delete message"
+                            >
+                                <i class="fa-regular fa-trash-can"></i>
+                            </button>
+
+                        </div>
+
+                    </article>
+
+
+                    <article class="message-card unread">
+
+                        <div class="message-top">
+
+                            <div class="message-avatar">
+                                AS
+                            </div>
+
+                            <div>
+                                <h3>Anjali Sharma</h3>
+                                <small>anjali@gmail.com</small>
+                            </div>
+
+                            <span>Today</span>
+
+                        </div>
+
+                        <h4>Bulk organic vegetables</h4>
+
+                        <p>
+                            I am interested in purchasing organic
+                            vegetables in bulk for my restaurant.
+                        </p>
+
+                        <div class="message-actions">
+
+                            <button
+                                type="button"
+                                class="reply-btn"
+                            >
+                                <i class="fa-solid fa-reply"></i>
+                                Reply
+                            </button>
+
+                            <button
+                                type="button"
+                                class="delete-btn"
+                                aria-label="Delete message"
+                                title="Delete message"
+                            >
+                                <i class="fa-regular fa-trash-can"></i>
+                            </button>
+
+                        </div>
+
+                    </article>
+
+
+                    <article class="message-card">
+
+                        <div class="message-top">
+
+                            <div class="message-avatar">
+                                PV
+                            </div>
+
+                            <div>
+                                <h3>Priya Verma</h3>
+                                <small>priya@gmail.com</small>
+                            </div>
+
+                            <span>Yesterday</span>
+
+                        </div>
+
+                        <h4>Product availability</h4>
+
+                        <p>
+                            Is organic brown rice currently available
+                            for delivery?
+                        </p>
+
+                        <div class="message-actions">
+
+                            <button
+                                type="button"
+                                class="reply-btn"
+                            >
+                                <i class="fa-solid fa-reply"></i>
+                                Reply
+                            </button>
+
+                            <button
+                                type="button"
+                                class="delete-btn"
+                                aria-label="Delete message"
+                                title="Delete message"
+                            >
+                                <i class="fa-regular fa-trash-can"></i>
+                            </button>
+
+                        </div>
+
+                    </article>
+
+                </div>
+
+            </section>
+
+
+            <!-- =================================
+                 NEWSLETTER
+            ================================== -->
+            <section
+                class="page-section"
+                id="newsletter"
+            >
+
+                <div class="section-top">
+
+                    <div>
+                        <span class="section-label">
+                            EMAIL MARKETING
+                        </span>
+
+                        <h2>Newsletter</h2>
+
+                        <p>
+                            Manage your newsletter subscribers.
+                        </p>
+                    </div>
+
+                </div>
+
+
+                <div class="newsletter-card">
+
+                    <div class="newsletter-icon">
+                        <i class="fa-regular fa-paper-plane"></i>
+                    </div>
+
+                    <div>
+
+                        <span>SUBSCRIBERS</span>
+
+                        <h3>2,846</h3>
+
+                        <p>
+                            People subscribed to GreenHarvest updates.
+                        </p>
+
+                    </div>
+
+                    <button
+                        type="button"
+                        class="primary-btn"
+                    >
+                        Create Campaign
+                    </button>
+
+                </div>
+
+            </section>
+
+
+            <!-- =================================
+                 SETTINGS
+            ================================== -->
+            <section
+                class="page-section"
+                id="settings"
+            >
+
+                <div class="section-top">
+
+                    <div>
+                        <span class="section-label">
+                            SYSTEM SETTINGS
+                        </span>
+
+                        <h2>Settings</h2>
+
+                        <p>
+                            Manage your admin account settings.
+                        </p>
+                    </div>
+
+                </div>
+
+
+                <div class="settings-card">
+
+                    <div class="settings-row">
+
+                        <div class="settings-icon">
+                            <i class="fa-solid fa-user"></i>
+                        </div>
+
+                        <div>
+                            <h3>Admin Profile</h3>
+                            <p>
+                                Manage your name and account information.
+                            </p>
+                        </div>
+
+                        <button
+                            type="button"
+                            class="outline-btn"
+                        >
+                            Edit
+                        </button>
+
+                    </div>
+
+
+                    <div class="settings-row">
+
+                        <div class="settings-icon">
+                            <i class="fa-solid fa-lock"></i>
+                        </div>
+
+                        <div>
+                            <h3>Password & Security</h3>
+                            <p>
+                                Update your password and security settings.
+                            </p>
+                        </div>
+
+                        <button
+                            type="button"
+                            class="outline-btn"
+                        >
+                            Manage
+                        </button>
+
+                    </div>
+
+
+                    <div class="settings-row">
+
+                        <div class="settings-icon">
+                            <i class="fa-solid fa-bell"></i>
+                        </div>
+
+                        <div>
+                            <h3>Notifications</h3>
+                            <p>
+                                Control dashboard notification preferences.
+                            </p>
+                        </div>
+
+                        <label class="switch">
+                            <input type="checkbox" checked>
+                            <span></span>
+                        </label>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+        </div>
+
+
+        <!-- Footer -->
+        <footer class="dashboard-footer">
+
+            <p>
+                © 2026 GreenHarvest. Organic food management dashboard.
+            </p>
+
+            <span>
+                Made with <i class="fa-solid fa-leaf"></i>
+            </span>
+
+        </footer>
+
+    </main>
+
+</div>
+
+
+<!-- AOS -->
+<script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+
+<!-- Admin JS -->
+<script src="js/admin.js"></script>
+
+</body>
+</html>
