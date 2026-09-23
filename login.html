@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+    <meta
+        name="description"
+        content="GreenHarvest account login">
+
+    <title>GreenHarvest | Login</title>
+
+
+    <!-- GOOGLE FONTS -->
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <link
+        rel="preconnect"
+        href="https://fonts.gstatic.com"
+        crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700;800&display=swap"
+        rel="stylesheet">
+
+
+    <!-- FONT AWESOME -->
+
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+
+    <!-- AOS -->
+
+    <link
+        rel="stylesheet"
+        href="https://unpkg.com/aos@2.3.4/dist/aos.css">
+
+
+    <!-- LOGIN CSS -->
+
+    <link
+        rel="stylesheet"
+        href="css/login.css">
+
+</head>
+
+
+<body>
+
+
+    <!-- =====================================================
+         BACKGROUND ANIMATION
+    ====================================================== -->
+
+    <div class="background-animation">
+
+        <span class="floating-leaf leaf-one">
+            <i class="fa-solid fa-leaf"></i>
+        </span>
+
+        <span class="floating-leaf leaf-two">
+            <i class="fa-solid fa-seedling"></i>
+        </span>
+
+        <span class="floating-leaf leaf-three">
+            <i class="fa-solid fa-leaf"></i>
+        </span>
+
+        <span class="floating-leaf leaf-four">
+            <i class="fa-solid fa-seedling"></i>
+        </span>
+
+    </div>
+
+
+
+    <!-- =====================================================
+         LOGIN PAGE
+    ====================================================== -->
+
+    <main class="login-page">
+
+
+        <div class="login-container">
+
+
+            <!-- =================================================
+                 IMAGE SIDE
+            ================================================== -->
+
+            <section
+                class="login-image"
+                data-aos="fade-right">
+
+
+                <div class="image-overlay"></div>
+
+
+                <div class="image-content">
+
+
+                    <!-- LOGO -->
+
+                    <a
+                        href="index.html"
+                        class="login-logo"
+                        aria-label="GreenHarvest Home">
+
+                        <img
+                            src="assets/imglogo.webp"
+                            alt="GreenHarvest Logo">
+
+                    </a>
+
+
+                    <!-- HEADING -->
+
+                    <h1>
+
+                        Fresh choices.
+
+                        <span>
+                            Better living.
+                        </span>
+
+                    </h1>
+
+
+                    <!-- DESCRIPTION -->
+
+                    <p>
+
+                        Welcome back to GreenHarvest.
+                        Continue your journey towards
+                        fresh, natural and healthy food.
+
+                    </p>
+
+
+                    <!-- FEATURES -->
+
+                    <div class="image-features">
+
+
+                        <div class="feature-item">
+
+                            <i class="fa-solid fa-leaf"></i>
+
+                            <span>
+                                Fresh organic products
+                            </span>
+
+                        </div>
+
+
+                        <div class="feature-item">
+
+                            <i class="fa-solid fa-truck-fast"></i>
+
+                            <span>
+                                Farm-to-table quality
+                            </span>
+
+                        </div>
+
+
+                        <div class="feature-item">
+
+                            <i class="fa-solid fa-shield-heart"></i>
+
+                            <span>
+                                Safe and secure shopping
+                            </span>
+
+                        </div>
+
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+
+            <!-- =================================================
+                 LOGIN FORM SIDE
+            ================================================== -->
+
+            <section
+                class="login-section"
+                data-aos="fade-left">
+
+
+                <div class="login-card">
+
+
+                    <!-- HEADING -->
+
+                    <div class="login-heading">
+
+                        <span class="small-label">
+
+                            <i class="fa-solid fa-right-to-bracket"></i>
+
+                            ACCOUNT LOGIN
+
+                        </span>
+
+
+                        <h2>
+
+                            Welcome
+
+                            <span>
+                                back!
+                            </span>
+
+                        </h2>
+
+
+                        <p>
+
+                            Login using the Gmail and password
+                            you used while creating your account.
+
+                        </p>
+
+                    </div>
+
+
+
+                    <!-- LOGIN FORM -->
+
+                    <form
+                        id="loginForm"
+                        novalidate>
+
+
+                        <!-- ROLE -->
+
+                        <div class="form-group">
+
+                            <label>
+                                Select Role
+                            </label>
+
+
+                            <div class="role-grid">
+
+
+                                <!-- ADMIN -->
+
+                                <label class="role-option">
+
+                                    <input
+                                        type="radio"
+                                        name="loginRole"
+                                        value="admin">
+
+                                    <span class="role-card">
+
+                                        <i class="fa-solid fa-user-shield"></i>
+
+                                        <strong>
+                                            Admin
+                                        </strong>
+
+                                        <small>
+                                            Admin Dashboard
+                                        </small>
+
+                                    </span>
+
+                                </label>
+
+
+
+                                <!-- CUSTOMER -->
+
+                                <label class="role-option">
+
+                                    <input
+                                        type="radio"
+                                        name="loginRole"
+                                        value="customer">
+
+                                    <span class="role-card">
+
+                                        <i class="fa-solid fa-user"></i>
+
+                                        <strong>
+                                            Customer
+                                        </strong>
+
+                                        <small>
+                                            Customer Dashboard
+                                        </small>
+
+                                    </span>
+
+                                </label>
+
+
+                            </div>
+
+
+                            <span
+                                class="error-message"
+                                id="roleError">
+                            </span>
+
+                        </div>
+
+
+
+                        <!-- EMAIL -->
+
+                        <div class="form-group">
+
+                            <label for="loginEmail">
+                                Gmail Address
+                            </label>
+
+
+                            <div class="input-box">
+
+                                <i
+                                    class="fa-solid fa-envelope input-icon">
+                                </i>
+
+
+                                <input
+                                    type="email"
+                                    id="loginEmail"
+                                    placeholder="Enter your Gmail"
+                                    autocomplete="email"
+                                    required>
+
+                            </div>
+
+
+                            <span
+                                class="error-message"
+                                id="emailError">
+                            </span>
+
+                        </div>
+
+
+
+                        <!-- PASSWORD -->
+
+                        <div class="form-group">
+
+                            <div class="label-row">
+
+                                <label for="loginPassword">
+                                    Password
+                                </label>
+
+
+                                <a
+                                    href="404.html"
+                                    class="forgot-link">
+
+                                    Forgot Password?
+
+                                </a>
+
+                            </div>
+
+
+                            <div class="input-box">
+
+                                <i
+                                    class="fa-solid fa-lock input-icon">
+                                </i>
+
+
+                                <input
+                                    type="password"
+                                    id="loginPassword"
+                                    placeholder="Enter your password"
+                                    autocomplete="current-password"
+                                    required>
+
+
+                                <button
+                                    type="button"
+                                    class="password-toggle"
+                                    id="passwordToggle"
+                                    aria-label="Show password"
+                                    title="Show password">
+
+                                    <i class="fa-solid fa-eye"></i>
+
+                                </button>
+
+                            </div>
+
+
+                            <span
+                                class="error-message"
+                                id="passwordError">
+                            </span>
+
+                        </div>
+
+
+
+                        <!-- REMEMBER -->
+
+                        <div class="login-options">
+
+                            <label class="remember-me">
+
+                                <input
+                                    type="checkbox"
+                                    id="rememberMe">
+
+                                <span>
+                                    Remember me
+                                </span>
+
+                            </label>
+
+                        </div>
+
+
+
+                        <!-- LOGIN BUTTON -->
+
+                        <button
+                            type="submit"
+                            class="login-btn"
+                            id="loginBtn">
+
+                            <span>
+                                Login to Account
+                            </span>
+
+                            <i class="fa-solid fa-arrow-right"></i>
+
+                        </button>
+
+
+
+                        <!-- SUCCESS -->
+
+                        <div
+                            class="success-message"
+                            id="successMessage"
+                            role="status"
+                            aria-live="polite">
+                        </div>
+
+
+                        <!-- ERROR -->
+
+                        <div
+                            class="login-error"
+                            id="loginError"
+                            role="alert">
+                        </div>
+
+
+                    </form>
+
+
+
+                    <!-- SIGNUP -->
+
+                    <div class="signup-redirect">
+
+                        <p>
+
+                            Don't have an account?
+
+                            <a href="signup.html">
+
+                                Create Account
+
+                                <i class="fa-solid fa-arrow-right"></i>
+
+                            </a>
+
+                        </p>
+
+                    </div>
+
+
+
+                    <!-- HOME -->
+
+                    <a
+                        href="index.html"
+                        class="back-home">
+
+                        <i class="fa-solid fa-arrow-left"></i>
+
+                        Back to Home
+
+                    </a>
+
+
+                </div>
+
+            </section>
+
+        </div>
+
+    </main>
+
+
+
+    <!-- AOS -->
+
+    <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+
+
+    <!-- LOGIN JS -->
+
+    <script src="js/login.js"></script>
+
+
+</body>
+
+</html>
